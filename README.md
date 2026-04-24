@@ -1,33 +1,57 @@
-Hindi to English Dataset Translator
-This project translates Hindi text present in a CSV dataset into English automatically using Python. The program reads the dataset, translates Hindi words or sentences into English, and saves the translated dataset into a new CSV file.
-The project demonstrates basic data processing and language translation using Python.
-Technologies Used
-Python
-pandas – for reading and processing CSV data
-googletrans – for translating Hindi text into English
+# Hindi to English Dataset Translator
 
-project structure:
-translation-project
-│
-├── data
-│   └── hindi.csv
-│
-├── output
-│   └── output.csv
-│
-├── src
-│   └── translator.py
-│
+A Python utility for translating Hindi text stored in CSV datasets into English. The script reads a source CSV, translates text columns with `googletrans`, and writes the translated dataset back to disk for downstream analysis or preprocessing.
+
+## Highlights
+
+- Reads Hindi text from CSV data
+- Translates all text columns by default
+- Supports selecting specific columns with a CLI flag
+- Writes the translated dataset to a new CSV file
+
+## Tech Stack
+
+- Python
+- Pandas
+- googletrans
+
+## Project Files
+
+```text
+Hindi-to-English-Dataset-Translator-using-Python/
+├── hindi.csv
+├── translation.py
 ├── requirements.txt
 └── README.md
-Features
-Reads Hindi text from a CSV dataset
-Automatically translates Hindi content into English
-Replaces original Hindi values with translated English values
-Saves the translated dataset as a new CSV file
-How It Works
-The program loads the CSV dataset using pandas.
-It scans each column and finds unique Hindi text values.
-Each value is sent to the translation API.
-The translated English text replaces the original Hindi text.
-The updated dataset is saved as a new CSV file.
+```
+
+## Run Locally
+
+```bash
+git clone https://github.com/Diksha159457/Hindi-to-English-Dataset-Translator-using-Python.git
+cd Hindi-to-English-Dataset-Translator-using-Python
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+python translation.py --input hindi.csv --output translated_hindi.csv
+```
+
+Optional: translate only selected columns.
+
+```bash
+python translation.py --input hindi.csv --output translated_hindi.csv --columns sentence category
+```
+
+## Resume Value
+
+This project demonstrates CSV processing, CLI design, lightweight NLP tooling, and preprocessing workflows for multilingual datasets.
+
+## Future Improvements
+
+- Add batch progress reporting for large datasets
+- Add retry logic for translator failures
+- Support other source and destination languages from the command line
+
+## License
+
+MIT. See [LICENSE](LICENSE).
