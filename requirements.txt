@@ -1,2 +1,8 @@
 pandas>=2.0
-googletrans==4.0.0rc1
+tqdm>=4.66
+# pick a backend:
+transformers>=4.40
+sentencepiece>=0.2
+sacremoses>=0.1
+torch>=2.2
+deep-translator>=1.11

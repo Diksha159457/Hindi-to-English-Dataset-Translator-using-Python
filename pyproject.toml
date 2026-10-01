@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "hindi-translator"
+version = "2.0.0"
+description = "Batch-translate Hindi text columns in CSV datasets to English, with caching, retries and optional sentiment."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "Diksha Shahi" }]
+dependencies = ["pandas>=2.0", "tqdm>=4.66"]
+
+[project.optional-dependencies]
+marian = ["transformers>=4.40", "sentencepiece>=0.2", "sacremoses>=0.1", "torch>=2.2"]
+google = ["deep-translator>=1.11"]
+sentiment = ["transformers>=4.40", "torch>=2.2"]
+dev = ["pytest>=8", "pytest-cov>=5", "ruff>=0.6"]
+
+[project.scripts]
+hindi-translate = "hindi_translator.cli:main"
+
+[tool.setuptools]
+packages = ["hindi_translator"]
+
+[tool.ruff]
+line-length = 120
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "UP"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
