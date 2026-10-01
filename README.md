@@ -51,9 +51,7 @@ import pandas as pd
 from hindi_translator import MarianBackend, TranslationCache, translate_dataframe
 
 df = pd.read_csv("reviews.csv", encoding="utf-8-sig")
-out, stats = translate_dataframe(
-    df, MarianBackend(), suffix="_en", cache=TranslationCache(".cache/t.sqlite")
-)
+out, stats = translate_dataframe(df, MarianBackend(), suffix="_en", cache=TranslationCache(".cache/t.sqlite"))
 print(stats.summary())
 ```
 
