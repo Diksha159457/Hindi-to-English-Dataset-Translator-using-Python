@@ -2,3 +2,8 @@
 __pycache__/
 *.pyc
 translated_*.csv
+.cache/
+.coverage
+.pytest_cache/
+.ruff_cache/
+*.egg-info/
